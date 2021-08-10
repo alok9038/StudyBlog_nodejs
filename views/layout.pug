@@ -1,0 +1,44 @@
+doctype html
+html
+  head
+    title= "Study Blog"
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css")
+
+  body
+    nav.navbar.navbar-expand-lg.bg-white.text-whitda.navbar-light.p-0.border-bottom.border-top-teal.border-top
+      .container 
+        ul.navbar-nav.ms-auto 
+          li.nav-item 
+            a.nav-link.small.me-2(href="#").fa.fa-phone-alt.mt-1
+              span.ms-2.fw-light +91 9113751193
+              span.ms-2 |
+          li.nav-item
+            a.nav-link.small.me-2(href="#").fa.fa-envelope.mt-1
+              span.ms-2.fw-light studyblog1884@studyblog.com
+              span.ms-2 
+          li.nav-item.bg-teal
+            a.nav-link.small(href="#")
+              span.ms-2.text-white Apply Now
+
+
+    nav.navbar.navbar-expand-lg.navbar-light.sticky-top.bg-white.card-shadow-md.py-4 
+      .container 
+        a.navbar-brand(href="/") Study Blog 
+        ul.navbar-nav 
+          li.nav-item  
+            a.nav-link(href="/") 
+              span.me-2 Home
+              span.ms-2 |
+          li.nav-item  
+            a.nav-link(href="/insert-topic") 
+              span.me-2 Add Topic
+              span.ms-2 |
+          li.nav-item  
+            a.nav-link(href="/insert-post") Add Post
+          li.nav-item.ms-3
+            a.nav-link.small.search-div.rounded-circle.bg-light(href="")
+              i.fa.fa-search
+
+    block content

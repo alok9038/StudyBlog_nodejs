@@ -1,0 +1,56 @@
+extends layout
+
+block content
+
+    .container-fluid.px-4.mt-4 
+        .row.row-cols-lg-2 
+            .col-lg-4 
+                .card.card-shadow-md.rounded-15 
+                    .card-body 
+                        form(action="", method="post") 
+                            .mb-3 
+                                label(for="post_title") Post Title
+                                input.form-control.rounded-10.shadow-none(type="text",name="post_title",id="post_title")
+                            .mb-3 
+                                label(for="topic") Topic 
+                                select#topic.form-select.shadow-none.rounded-10(name="topic_id") 
+                                    option(value="", disabled, selected, hidden) select 
+                                    each topic in result
+                                        option(value=topic.id) #{topic.title}
+                            .mb-3 
+                                label(for="author") Author
+                                input.form-control.rounded-10.shadow-none(type="text",name="author",id="author")
+                            .mb-3 
+                                label(for="content") Content
+                                textarea#content(name="content", cols="30", rows="10").form-control.rounded-10.shadow-none
+                            .mb-3 
+                                button.btn.bg-teal.text-white.float-end Insert Post
+            .col-lg-8 
+                .card.card-shadow-md.rounded-15 
+                    .card-body 
+                        table.table.table-borderless 
+                            tr 
+                                th #id 
+                                th Title 
+                                th Topic
+                                th Author
+                                th Status
+                                th Action
+
+                            each post in posts
+                                tr 
+                                    td #{post.id}
+                                    td #{post.title}
+                                    td #{post.topic_title}
+                                    td #{post.author}
+                                    td 
+                                        if post.status == 1
+                                            span.badge.bg-teal active
+                                        else 
+                                            span.badge.bg-danger deactive
+                                    td 
+                                        .btn-group 
+                                            a.btn.btn-danger.btn-sm(href="") 
+                                                i.fa.fa-trash 
+                                            a.btn.text-white.bg-teal.btn-sm(href="") 
+                                                i.fa.fa-edit 

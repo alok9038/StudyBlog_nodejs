@@ -1,0 +1,85 @@
+extends layout
+
+block content
+  .container-fluid.vh-50.banner-div.p-0(style="") 
+    .overlay.d-flex.align-items-center
+      div.ms-5
+        h2.text-light.fw-bolder.banner-text Are you ready to Study?
+        h2.text-light.fw-bolder.banner-text.mt-3 We have 
+          span.bg-warning.p-1.rounded Solution
+  .container.vh-100.mt-5 
+    .row 
+      .col-lg-8 
+        h1.fw-light.h2 Welcome to Study Blog
+        p.small.text-muted Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+        div.bg-teal.rounded(style="padding:0.9px;heihgt:1px;width:135px;")
+
+        p.small.text-muted.mt-3 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem fugiat maxime eveniet deleniti qui culpa exercitationem officiis! Quae quis obcaecati repudiandae? 
+      
+        .row.row-cols-lg-2.row-cols-md-2.row-cols-sm-2.row-cols-2.gy-5.mt-5
+          .col
+            .card.border-0
+              .row 
+                .col-lg-2
+                  .rounded-circle.icon-div.d-flex.justify-content-center.align-items-center   
+                    i.fa.fa-graduation-cap 
+                .col 
+                  p.text-muted(style="font-size:12px;") GRADUATED STEPS
+                  div.bg-secondary.rounded(style="padding:1px;heihgt:1px;width:75px;")
+                  p.small.text-muted.mt-3 Photo booth Banksy YOLO mixtape post-ironic they sold out all.
+          .col
+            .card.border-0
+              .row 
+                .col-lg-2
+                  .rounded-circle.icon-div.d-flex.justify-content-center.align-items-center   
+                    i.fa.fa-globe 
+                .col 
+                  p.text-muted(style="font-size:12px;") GLOBAL INTERESTED
+                  div.bg-secondary.rounded(style="padding:1px;heihgt:1px;width:75px;")
+                  p.small.text-muted.mt-3 Photo booth Banksy YOLO mixtape post-ironic they sold out all.
+          .col
+            .card.border-0
+              .row 
+                .col-lg-2
+                  .rounded-circle.icon-div.d-flex.justify-content-center.align-items-center   
+                    i.fa.fa-clock 
+                .col 
+                  p.text-muted(style="font-size:12px;") CIRCULAR CLOCK
+                  div.bg-secondary.rounded(style="padding:1px;heihgt:1px;width:75px;")
+                  p.small.text-muted.mt-3 Photo booth Banksy YOLO mixtape post-ironic they sold out all.
+          .col
+            .card.border-0
+              .row 
+                .col-lg-2
+                  .rounded-circle.icon-div.d-flex.justify-content-center.align-items-center   
+                    i.fa.fa-book 
+                .col 
+                  p.text-muted(style="font-size:12px;") OPEN BOOK
+                  div.bg-secondary.rounded(style="padding:1px;heihgt:1px;width:75px;")
+                  p.small.text-muted.mt-3 Photo booth Banksy YOLO mixtape post-ironic they sold out all.
+      .col-lg-4 
+        .img-div.rounded-15.card-shadow-lg.bg-dark
+        .bottom-img-div.card-shadow-md.rounded-15.d-lg-flex.d-none 
+          img(src="/images/g2.png",class="img-fluid rounded-15", alt="")
+
+  .container.my-5 
+    h1.fw-light.h2 Latest Posts
+    div.bg-teal.rounded(style="padding:0.9px;heihgt:1px;width:105px;") 
+    
+    each post in posts
+      .card.border-0.card-shadow-md.mt-4.rounded-15 
+        .card-body 
+          .row 
+            .col-lg-4 
+              img.img-fluid.rounded-15(src="/images/dummy.jpg") 
+            .col-lg-8 
+              h1.fw-light.h2=post.title
+              p.small.text-muted=post.content
+              span.text-white.rounded-25.px-2.py-1(style={fontweight:500,background:post.color})=post.topic_title
+              .mt-2  
+                span.text-muted.small.text-capitalize=post.author
+                i.fa.fa-circle.mx-3.text-muted(style="font-size:7px;")
+                span.text-muted.small May 02, 2021
+              a.btn.bg-teal.text-white.float-end(href="") Read more
+
+

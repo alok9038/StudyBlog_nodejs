@@ -1,0 +1,40 @@
+extends layout
+
+block content
+
+    .container.mt-4 
+        .row.row-cols-lg-2 
+            .col-lg-4 
+                .card.card-shadow-md.rounded-15 
+                    .card-body 
+                        form(action="", method="post") 
+                            .mb-3 
+                                label(for="topic_title") Topic Title
+                                input.form-control.rounded-10.shadow-none(type="text",name="topic_title",id="topic_title")
+                            .mb-3 
+                                label(for="color") Color
+                                input.form-control.rounded-10.shadow-none(type="color",name="color",id="color")
+                            .mb-3 
+                                button.btn.bg-teal.text-white.float-end Add Topic
+            .col-lg-8 
+                .card.card-shadow-md.rounded-15 
+                    .card-body 
+                        table.table.table-borderless 
+                            tr 
+                                th #id 
+                                th Topic Title 
+                                th Color
+                                th Action
+                            each topic in result
+                                tr 
+                                    td #{topic.id}
+                                    td #{topic.title}
+                                    td 
+                                        .border-0.color.rounded-25(style={height:'30px',width:'30px',background:topic.color})
+                                    td 
+                                        .btn-group 
+                                            a.btn.btn-danger.btn-sm(href="")
+                                                i.fa.fa-trash  
+                                            a.btn.btn-info.btn-sm(href="")
+                                                i.fa.fa-edit  
+                                            
