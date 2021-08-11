@@ -17,10 +17,10 @@ app.use(express.json());
 // to encode the form data
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(flash());
+// app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
 // form-multipart form-data
-app.use(upload.array())
+// app.use(upload.array())
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
