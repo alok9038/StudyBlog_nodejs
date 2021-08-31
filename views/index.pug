@@ -1,12 +1,12 @@
 extends layout
 
 block content
-  .container-fluid.vh-50.banner-div.p-0(style="") 
-    .overlay.d-flex.align-items-center
-      div.ms-5
-        h2.text-light.fw-bolder.banner-text Are you ready to Study?
-        h2.text-light.fw-bolder.banner-text.mt-3 We have 
-          span.bg-warning.p-1.rounded Solution
+  //- .container-fluid.vh-50.banner-div.p-0(style="") 
+  //-   .overlay.d-flex.align-items-center
+  //-     div.ms-5
+  //-       h2.text-light.fw-bolder.banner-text Are you ready to Study?
+  //-       h2.text-light.fw-bolder.banner-text.mt-3 We have 
+  //-         span.bg-warning.p-1.rounded Solution
   .container.vh-100.mt-5 
     .row 
       .col-lg-8 
@@ -62,24 +62,39 @@ block content
         .bottom-img-div.card-shadow-md.rounded-15.d-lg-flex.d-none 
           img(src="/images/g2.png",class="img-fluid rounded-15", alt="")
 
-  .container.my-5 
-    h1.fw-light.h2 Latest Posts
-    div.bg-teal.rounded(style="padding:0.9px;heihgt:1px;width:105px;") 
+  .container.my-5
+    .row 
+      .col-lg-9 
+        if featured
+          h1.fw-light.h2 Filter by #{posts[0].topic_title}
+        else 
+          h1.fw-light.h2 Latest Posts
+
+        div.bg-teal.rounded(style="padding:0.9px;heihgt:1px;width:105px;") 
+        
+        each post in posts
+          .card.border-0.card-shadow-md.mt-4.rounded-15 
+            .card-body 
+              .row 
+                .col-lg-5 
+                  img.img-fluid.rounded-15(src='../images/'+post.image) 
+                .col-lg-7 
+                  h1.fw-light.h2.text-truncate=post.title
+                  p.small.text-muted=post.content.substr(0,140)
+                  span.text-white.rounded-25.px-2.py-1(style={fontweight:500,background:post.color})=post.topic_title
+                  .mt-2  
+                    span.text-muted.small.text-capitalize=post.author
+                    i.fa.fa-circle.mx-3.text-muted(style="font-size:7px;")
+                    span.text-muted.small May 02, 2021
+                  a.btn.bg-teal.text-white.float-end(href="/post/"+post.id) Read more
     
-    each post in posts
-      .card.border-0.card-shadow-md.mt-4.rounded-15 
-        .card-body 
-          .row 
-            .col-lg-4 
-              img.img-fluid.rounded-15(src="/images/dummy.jpg") 
-            .col-lg-8 
-              h1.fw-light.h2=post.title
-              p.small.text-muted=post.content
-              span.text-white.rounded-25.px-2.py-1(style={fontweight:500,background:post.color})=post.topic_title
-              .mt-2  
-                span.text-muted.small.text-capitalize=post.author
-                i.fa.fa-circle.mx-3.text-muted(style="font-size:7px;")
-                span.text-muted.small May 02, 2021
-              a.btn.bg-teal.text-white.float-end(href="") Read more
-
-
+      .col-lg-3 
+        h1.fw-light.h2 Topics
+          div.bg-teal.rounded(style="padding:0.9px;heihgt:1px;width:58px;") 
+          
+        .card.border-0.card-shadow-md.mt-4.rounded-15 
+            .card-body 
+              .list-group.list-group-flush
+                each topic in topics
+                  a.list-group-item.list-group-item-action.border-0.mt-2.rounded(href="/category/"+topic.id)=topic.title
+                

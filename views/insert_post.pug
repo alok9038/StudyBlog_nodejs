@@ -7,7 +7,7 @@ block content
             .col-lg-4 
                 .card.card-shadow-md.rounded-15 
                     .card-body 
-                        form(action="", method="post") 
+                        form(action="", method="post",enctype="multipart/form-data") 
                             .mb-3 
                                 label(for="post_title") Post Title
                                 input.form-control.rounded-10.shadow-none(type="text",name="post_title",id="post_title")
@@ -23,6 +23,9 @@ block content
                             .mb-3 
                                 label(for="content") Content
                                 textarea#content(name="content", cols="30", rows="10").form-control.rounded-10.shadow-none
+                            .mb-3 
+                                label(for="image") Image
+                                input#image(name="image",type="file").form-control.rounded-10.shadow-none
                             .mb-3 
                                 button.btn.bg-teal.text-white.float-end Insert Post
             .col-lg-8 

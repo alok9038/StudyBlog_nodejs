@@ -1,0 +1,29 @@
+extends layout
+
+block content 
+
+    .container.mt-4 
+        .row 
+            .col-lg-8 
+                .card.border-0.shadow-sm 
+                    .card-body 
+                        h4.card-title.mb-4=post.title
+                        p=post.topic_title
+                        p.small.text-muted.text-capitalize author : #{post.author}
+                        img.img-fluid(src='../images/'+post.image, class="rounded w-100 mb-4 border", alt="image")
+
+                        p.text-muted Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo repellat mollitia reiciendis harum, cumque libero non quo reprehenderit atque, eveniet, consectetur possimus dignissimos? Voluptatibus, eligendi. Labore suscipit odio ullam aspernatur!
+
+            .col-lg-4 
+                .sticky-top(style="top:100px;") 
+                    .card.border-0.shadow-sm 
+                        .card-header.bg-transparent
+                            h6 Related Posts
+                        .card-body 
+                            each related in relateds
+                                .d-flex.mb-3 
+                                    img.img-fluid(src="../images/"+related.image, style="height:70px",class="rounded", alt="")
+                                    div.ms-2 
+                                        p.h5.text-truncate=related.title.substr(0,18)+"..."
+                                        p.small=related.topic_title
+
